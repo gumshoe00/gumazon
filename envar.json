@@ -1,0 +1,15 @@
+{
+    "name": "gumazon",
+    "repo": {
+        "username": "gumshoe00",
+        "email": "gumshoe.media.inc@gmail.com",
+        "remote": {
+            "github": {
+                "https": "https://github.com/gumshoe00/gumazon.git",
+                "ssh": "git@github.com:gumshoe00/gumazon.git",
+                "noreply_email": "65322760+gumshoe00@users.noreply.github.com",
+                "pat": "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"
+            }
+        }
+    }
+}
