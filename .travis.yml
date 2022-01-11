@@ -18,10 +18,11 @@ script: tox
 # $ travis encrypt --add deploy.password
 deploy:
   provider: pypi
+  username: "__token__"
   distributions: sdist bdist_wheel
   user: gumshoe00
   password:
-    secure: PLEASE_REPLACE_ME
+    secure: "pypi-AgEIcHlwaS5vcmcCJGM4ZmIzNjBjLTRkM2UtNGIwZS1iNjFkLTg5OGUwNzJlMzcyOAACJXsicGVybWlzc2lvbnMiOiAidXNlciIsICJ2ZXJzaW9uIjogMX0AAAYgJjTSP06md3l0COiIoVtc1IyE8PFeB0RA4hlJE88zQJY"
   on:
     tags: true
     repo: gumshoe00/gumazon

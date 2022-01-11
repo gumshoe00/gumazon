@@ -108,3 +108,10 @@ ENV/
 # Private Environment Variables
 envar.json
 
+# Dev Helper Scripts
+devrun.sh
+
+# repos auth-Secrets file
+.pkg-settings.json
+settings/*
+!settings/repo.config.yaml
