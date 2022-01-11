@@ -31,7 +31,7 @@ setup(
     description="Gumazon Application",
     entry_points={
         'console_scripts': [
-            'gumazon=gumazon',
+            'gumazon=gumazon.__main__:main',
         ],
     },
     install_requires=requirements,

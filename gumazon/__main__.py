@@ -31,8 +31,6 @@ class Gumazon:
             yield str(item)
 
 
-
-
 def main():
     """Console script for gumazon."""
     parser = argparse.ArgumentParser()
