@@ -5,29 +5,29 @@ import nox
 
 nox.options.sessions = ["check", "generate"]
 
-
+MODULE_FILE='gumazon.__main__'
 # Keep versions in sync with .github/workflows/check.yml
 @nox.session(
     python=["2.6", "2.7", "3.2", "3.3", "3.4", "3.5", "3.6", "3.7", "3.8", "3.9"]
 )
 def check(session):
-    """Ensure that __main__.py for various Python versions, works on that version."""
+    """Ensure that MODULE_FILE.py for various Python versions, works on that version."""
 
-    # Find the appropriate __main__.py file
+    # Find the appropriate MODULE_FILE.py file
     public = Path("public")
     locations = [
-        public / session.python / "__main__.py",
-        public / "__main__.py",
+        public / session.python / "MODULE_FILE.py",
+        public / "MODULE_FILE.py",
     ]
     for location in locations:
         if location.exists():
             break
     else:  # AKA nobreak
-        raise RuntimeError("There is no public __main__.py")
+        raise RuntimeError("There is no public MODULE_FILE.py")
 
     # Get rid of provided-by-nox pip
     session.run("python", "-m", "pip", "uninstall", "pip", "--yes")
-    # Run the __main__.py file
+    # Run the MODULE_FILE.py file
     session.run("python", str(location))
     # Ensure that pip is installed
     session.run("python", "-m", "pip", "--version")
@@ -46,8 +46,8 @@ def generate(session):
 def update_for_release(session):
     """Automation to run after a pip release."""
     allowed_upstreams = [
-        "git@github.com:pypa/__main__.git",
-        "https://github.com/pypa/__main__.git",
+        "git@github.com:pypa/MODULE_FILE.git",
+        "https://github.com/pypa/MODULE_FILE.git",
     ]
 
     if len(session.posargs) != 1:
@@ -81,10 +81,10 @@ def update_for_release(session):
             * IMPORTANT: Check which files got modified. *
             **********************************************
             This script will now generate a "signed" git tag for this commit and
-            push the tag and release branch to pypa/__main__. You will need to:
+            push the tag and release branch to pypa/MODULE_FILE. You will need to:
             - File a PR from the `{release_branch}` branch.
             - Merge it once the CI passes (no need to wait on reviews).
-            - Delete the `{release_branch}` branch on pypa/__main__.
+            - Delete the `{release_branch}` branch on pypa/MODULE_FILE.
             """
         )
     )
