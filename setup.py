@@ -12,19 +12,10 @@ requirements = []
 with open('requirements.txt') as requirements_file:
     requirements.extend(requirements_file.readlines())
 
-dev_requirements = ['pytest>=3']
-with open('requirements_dev.txt') as requirements_dev_file:
-    dev_requirements.extend(requirements_dev_file.readlines())
-
-test_requirements = []
-with open('requirements_test.txt') as requirements_test_file:
-    test_requirements.extend(requirements_test_file.readlines())
-
-
 
 setup(
     name='gumazon',
-    keywords='Gumazon Ads Cross-Locals Offering Visibility.',
+    keywords='Gumazon Ads Cross-Locals Visibility.',
     url='https://github.com/gumshoe00/gumazon',
     version='0.1.0',
     author='Gumshoe Media Inc.',
@@ -48,9 +39,7 @@ setup(
     license='GNU General Public License v3',
     long_description=readme + '\n\n' + history,
     include_package_data=True,
-    packages=find_packages(include=['gumazon', 'gumazon.*']),
-    test_suite='tests',
-    tests_require=test_requirements,
+    packages=find_packages(),
     zip_safe=False,
 )
 
