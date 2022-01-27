@@ -1,49 +1,45 @@
-#!/usr/bin/env python
-
-"""The setup script."""
-
 from setuptools import setup, find_packages
 
+readme = []
 with open('README.rst') as readme_file:
-    readme = readme_file.read()
+    readme.extend(readme_file.readlines())
 
+history = []
 with open('HISTORY.rst') as history_file:
-    history = history_file.read()
+    history.extend(history_file.readlines())
 
-requirements = [ ]
+requirements = []
+with open('requirements.txt') as requirements_file:
+    requirements.extend(requirements_file.readlines())
 
-test_requirements = ['pytest>=3', ]
 
 setup(
-    author="Gumshoe Media Inc.",
-    author_email='admin@gumazon.io',
-    python_requires='>=3.6',
+    name='gumazon',
+    keywords='Gumazon Ads Cross-Locals Offering Visibility.',
+    url='https://github.com/gumshoe00/gumazon',
+    version='0.1.0',
+    author='Gumshoe Media Inc.',
+    author_email='gumshoe.media.inc@gmail.com',
+    python_requires='=<3.9.1',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Natural Language :: English',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: >=2.7',
+        'Programming Language :: Python :: =<3.9.1',
     ],
-    description="Gumazon Application",
+    description="Gumazon Ads Cross-Locals Visibility.",
     entry_points={
         'console_scripts': [
-            'gumazon=gumazon',
+            'gumazon=gumazon.__main__',
         ],
     },
     install_requires=requirements,
-    license="GNU General Public License v3",
+    license='GNU General Public License v3',
     long_description=readme + '\n\n' + history,
     include_package_data=True,
-    keywords='gumazon',
-    name='gumazon',
-    packages=find_packages(include=['gumazon', 'gumazon.*']),
-    test_suite='tests',
-    tests_require=test_requirements,
-    url='https://github.com/gumshoe00/gumazon',
-    version='0.1.1',
+    packages=find_packages(),
     zip_safe=False,
 )
+
