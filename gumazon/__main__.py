@@ -1,48 +1,87 @@
-"""Main module."""
+def bootstrap():
+    from api.controller import Controller
+    from api.models.product import Product
+    from api.models.user import User
 
-import argparse
-import sys
+    def products():
+        products = Controller(Product)
 
+        # CREATE
+        def _create():
+            products.save('name', 'bread', price=0.5, quantity=20)
+            products.save('name', 'milk', price=1.0, quantity=10)
+            products.save('name', 'wine', price=10.0, quantity=5)
+            products.save('name', 'beer', price=3.0, quantity=15)
 
-class Gumazon:
-    def __init__(self):
-        print(self.__class__.__name__)
-        print('Hello World!')
+        # READ
+        def _read():
+            print('___INDEX___')
+            print(products.index())
+            print('___SHOW___')
+            print(products.show('name', 'bread'))
 
-    def __call__(self, *args, **kwargs):
-        _output = {}
-        _output.update({"args": [_arg for _arg in args]})
-        _output.update(kwargs.copy())
+        # UPDATE
+        def _update():
+            print('___UPDATE___')
+            products.update('name', 'bread', price=2.0, quantity=30)
+            print('___SHOW___')
+            print(products.show('name', 'bread'))
 
-        def _dict2txt(value):
-            _output = ''
-            for _k in value.keys():
-                _output += _k
-                _output += str(value[_k])
-            return _output
+        # DELETE
+        def _del():
+            print('___DELETE___')
+            products.delete('name', 'beer')
+            print('__INDEX__')
+            print(products.index())
 
-        def _astxt(value):
-            _output = ''
+        # print(_create())
+        print(_read())
+        print(_update())
+        print(_del())
 
-            _output += str(value)
-            return _output
+    def users():
+        users = Controller(User)
 
-        for item in _output.items():
-            yield str(item)
+        # CREATE
+        def _create():
+            users.save('username', 'guest1', group='anonymous')
+            users.save('username', 'guest2', group='anonymous')
+            users.save('username', 'guest2', group='anonymous')
+            users.save('username', 'guest4', group='anonymous')
 
+        # READ
+        def _read():
+            print('___INDEX___')
+            print(users.index())
+            print('___SHOW___')
+            print(users.show('username', 'guest1'))
 
+        # UPDATE
+        def _update():
+            print('___UPDATE___')
+            users.update('username', 'guest1', group='guest')
+            print('___SHOW___')
+            print(users.show('username', 'guest1'))
+
+        # DELETE
+        def _del():
+            print('___DELETE___')
+            users.delete('username', 'guest2')
+            print('__INDEX__')
+            print(users.index())
+
+        # print(_create())
+        print(_read())
+        print(_update())
+        print(_del())
+
+    users()
+    products()
 
 
 def main():
-    """Console script for gumazon."""
-    parser = argparse.ArgumentParser()
-    parser.add_argument('_', nargs='*')
-    args = parser.parse_args()
-
-    print("Arguments: " + str(args._))
-    print(Gumazon()(*args))
-    return Gumazon()(*args)
+    bootstrap()
 
 
-if __name__ == "__main__":
-    sys.exit(main())  # pragma: no cover
+if __name__ == '__main__':
+    main()
