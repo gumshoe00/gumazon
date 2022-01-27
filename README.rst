@@ -10,10 +10,6 @@ gumazon
         :target: https://python.org/pypi/gumazon
         :alt: License
 
-.. image:: https://readthedocs.org/projects/gumazon/badge/?version=latest
-        :target: https://gumazon.readthedocs.io/en/latest/?version=latest
-        :alt: Documentation Status
-
 .. image:: https://img.shields.io/pypi/pyversions/gumazon.svg
      :target: https://python.org/pypi/gumazon
      :alt: Python Versions
