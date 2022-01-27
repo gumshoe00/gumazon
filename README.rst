@@ -4,19 +4,16 @@ gumazon
 
 
 .. image:: https://img.shields.io/pypi/v/gumazon.svg
-        :target: https://pypi.python.org/pypi/gumazon
+        :target: https://python.org/pypi/gumazon
+        :alt: Pip Install
 
-.. image:: https://img.shields.io/travis/gumshoe00/gumazon.svg
-        :target: https://travis-ci.com/gumshoe00/gumazon
+.. image:: https://img.shields.io/pypi/l/gumazon.svg
+        :target: https://python.org/pypi/gumazon
+        :alt: License
 
-.. image:: https://readthedocs.org/projects/gumazon/badge/?version=latest
-        :target: https://gumazon.readthedocs.io/en/latest/?version=latest
-        :alt: Documentation Status
-
-
-.. image:: https://pyup.io/repos/github/gumshoe00/gumazon/shield.svg
-     :target: https://pyup.io/repos/github/gumshoe00/gumazon/
-     :alt: Updates
+.. image:: https://img.shields.io/pypi/pyversions/gumazon.svg
+     :target: https://python.org/pypi/gumazon
+     :alt: Python Versions
 
 
 
