@@ -1,0 +1,9 @@
+.*
+!.gitignore
+_*
+!__init__.py
+!__main__.py
+dist
+tests/reports/*
+*.sqlite
+*.db
