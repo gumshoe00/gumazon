@@ -1,8 +1,5 @@
-class Application:
-    def __init__(self, *args, **kwargs):
-        print(self.__class__.__name__, '__init__')
-        print(list(args), kwargs.copy())
+from application.controller import Controller
 
-    def __call__(self, *args, **kwargs):
-        print(self.__class__.__name__, '__call__')
-        print(list(args), kwargs.copy())
+index = Controller().index()
+
+

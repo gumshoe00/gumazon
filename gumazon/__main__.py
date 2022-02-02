@@ -2,7 +2,6 @@
 
 import sys
 
-from gumazon import Application
+from gumazon import index
 
-print(Application((sys.argv[1] if len(sys.argv) > 1 else '')))
-print(Application()((sys.argv[1] if len(sys.argv) > 1 else '')))
+print(index)
